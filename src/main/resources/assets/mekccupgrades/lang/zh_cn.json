@@ -1,0 +1,7 @@
+{
+  "key.categories.mekccupgrades": "MEK 配置卡扩展",
+  "key.mekccupgrades.batch_paste": "批量粘贴配置卡",
+  "item.mekccupgrades.card_slot_bag": "卡槽包",
+  "tooltip.mekccupgrades.card_slot_bag.insert_supported": "一键放入",
+  "tooltip.mekccupgrades.card_slot_bag.extract_all": "一键移出"
+}

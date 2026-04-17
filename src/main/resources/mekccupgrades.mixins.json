@@ -1,0 +1,23 @@
+{
+  "required": true,
+  "package": "com.lhy.mekccupgrades.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "refmap": "mekccupgrades.refmap.json",
+  "mixins": [
+    "accessor.AbstractContainerScreenAccessor",
+    "accessor.ItemAccessor",
+    "accessor.GuiElementAccessor",
+    "ItemBlockFactoryMixin",
+    "ItemConfigurationCardMixin",
+    "MekanismTileContainerMixin",
+    "pseudo.MekanismExtrasFactoryItemMixin",
+    "pseudo.MekanismMoreMachineAdvancedFactoryItemMixin",
+    "pseudo.MekanismMoreMachineFactoryItemMixin",
+    "TileEntityMekanismMixin"
+  ],
+  "client": [
+    "client.GuiUpgradeWindowMixin"
+  ],
+  "server": []
+}

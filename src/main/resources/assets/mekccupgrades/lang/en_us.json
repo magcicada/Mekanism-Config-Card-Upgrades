@@ -1,0 +1,7 @@
+{
+  "key.categories.mekccupgrades": "Mek Config Card Upgrades",
+  "key.mekccupgrades.batch_paste": "Batch paste configuration card",
+  "item.mekccupgrades.card_slot_bag": "Card Slot Bag",
+  "tooltip.mekccupgrades.card_slot_bag.insert_supported": "Insert all",
+  "tooltip.mekccupgrades.card_slot_bag.extract_all": "Extract all"
+}
