@@ -1,6 +1,7 @@
 package com.lhy.mekccupgrades.recipe;
 
 import com.lhy.mekccupgrades.registration.ModRecipeSerializers;
+import com.lhy.mekccupgrades.util.ConfigCardMachineHelper;
 import mekanism.common.item.ItemConfigurationCard;
 import mekanism.common.tile.base.TileEntityMekanism;
 import net.minecraft.core.BlockPos;
@@ -81,7 +82,7 @@ public class ConfigCardResetRecipe extends CustomRecipe {
                     return ItemStack.EMPTY;
                 }
                 configCard = stackInSlot;
-            } else if (isResettableMachine(stackInSlot)) {
+            } else if (ConfigCardMachineHelper.isResettableMachine(stackInSlot)) {
                 if (!machineStack.isEmpty()) {
                     return ItemStack.EMPTY;
                 }
@@ -106,7 +107,7 @@ public class ConfigCardResetRecipe extends CustomRecipe {
                     return ItemStack.EMPTY;
                 }
                 configCard = stackInSlot;
-            } else if (isResettableMachine(stackInSlot)) {
+            } else if (ConfigCardMachineHelper.isResettableMachine(stackInSlot)) {
                 if (!machineStack.isEmpty()) {
                     return ItemStack.EMPTY;
                 }
@@ -118,15 +119,15 @@ public class ConfigCardResetRecipe extends CustomRecipe {
         return machineStack.isEmpty() || configCard.isEmpty() ? ItemStack.EMPTY : configCard;
     }
 
-    private static boolean isResettableMachine(ItemStack stack) {
-        if (!(stack.getItem() instanceof BlockItem blockItem)) {
-            return false;
-        }
-        BlockState defaultState = blockItem.getBlock().defaultBlockState();
-        if (!(blockItem.getBlock() instanceof EntityBlock entityBlock)) {
-            return false;
-        }
-        BlockEntity tile = entityBlock.newBlockEntity(BlockPos.ZERO, defaultState);
-        return tile instanceof TileEntityMekanism;
-    }
+    //private static boolean isResettableMachine(ItemStack stack) {
+    //    if (!(stack.getItem() instanceof BlockItem blockItem)) {
+    //        return false;
+    //    }
+    //    BlockState defaultState = blockItem.getBlock().defaultBlockState();
+    //    if (!(blockItem.getBlock() instanceof EntityBlock entityBlock)) {
+    //        return false;
+    //    }
+    //    BlockEntity tile = entityBlock.newBlockEntity(BlockPos.ZERO, defaultState);
+    //    return tile instanceof TileEntityMekanism;
+    //}
 }
