@@ -1,6 +1,7 @@
 package com.lhy.mekccupgrades.compat.jei;
 
 import com.lhy.mekccupgrades.recipe.ConfigCardResetRecipe;
+import com.lhy.mekccupgrades.util.ConfigCardMachineHelper;
 import java.util.List;
 import mekanism.common.item.ItemConfigurationCard;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
@@ -17,8 +18,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class ConfigCardResetRecipeExtension implements ICraftingCategoryExtension {
-    private static final List<ItemStack> RESETTABLE_MACHINE_ITEMS = ForgeRegistries.ITEMS.getValues().stream()
-          .filter(item -> item instanceof BlockItem blockItem && isResettableMachine(blockItem))
+    private static final List<ItemStack> RESETTABLE_MACHINE_ITEMS =
+          ForgeRegistries.ITEMS.getValues().stream()
+                .filter(item ->
+                        item instanceof BlockItem blockItem &&
+                        ConfigCardMachineHelper.isResettableMachine(blockItem))
           .map(ItemStack::new)
           .toList();
 
@@ -42,12 +46,12 @@ public class ConfigCardResetRecipeExtension implements ICraftingCategoryExtensio
         return recipe.getId();
     }
 
-    private static boolean isResettableMachine(BlockItem blockItem) {
-        BlockState defaultState = blockItem.getBlock().defaultBlockState();
-        if (!(blockItem.getBlock() instanceof EntityBlock entityBlock)) {
-            return false;
-        }
-        BlockEntity blockEntity = entityBlock.newBlockEntity(BlockPos.ZERO, defaultState);
-        return blockEntity instanceof mekanism.common.tile.base.TileEntityMekanism;
-    }
+    //private static boolean isResettableMachine(BlockItem blockItem) {
+    //    BlockState defaultState = blockItem.getBlock().defaultBlockState();
+    //    if (!(blockItem.getBlock() instanceof EntityBlock entityBlock)) {
+    //        return false;
+    //    }
+    //    BlockEntity blockEntity = entityBlock.newBlockEntity(BlockPos.ZERO, defaultState);
+    //    return blockEntity instanceof mekanism.common.tile.base.TileEntityMekanism;
+    //}
 }
